@@ -1,0 +1,9 @@
+[project]
+name = "bedrock-samples"
+version = "0.1.0"
+description = "Connects to AWS Bedrock and asks Claude Sonnet 4"
+readme = "README.md"
+requires-python = ">=3.12.6"
+dependencies = [
+    "boto3>=1.40.55",
+]
