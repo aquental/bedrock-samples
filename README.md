@@ -2,4 +2,5 @@
 
 AWS Bedrock AI
 
-[First call to ](./bedrock1/README.md)
+1. [First call to BedRock](./bedrock1/README.md)
+2. []())
