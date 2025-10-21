@@ -6,4 +6,5 @@ readme = "README.md"
 requires-python = ">=3.12.6"
 dependencies = [
     "boto3>=1.40.55",
+    "magicmock>=0.3",
 ]
