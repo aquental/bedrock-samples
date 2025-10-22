@@ -21,6 +21,12 @@ Run `aws configure`:
 uv add boto3
 ```
 
+### decrypt .env using GPG
+
+```shell
+gpg --decrypt .env.gpg
+```
+
 ## run
 
 ```shell
