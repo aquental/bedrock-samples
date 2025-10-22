@@ -1,10 +1,12 @@
 import boto3
 
-# TODO: Create a Bedrock Runtime client with your default region (us-east-1)
-client = boto3.client("bedrock-runtime", region_name="us-east-1")
+# Create a Bedrock Runtime client with your default region (us-east-1)
+# client = boto3.client("bedrock-runtime", region_name="us-east-1")
+client = boto3.client("bedrock-runtime", region_name="sa-east-1")
 
-# TODO: Define a Bedrock model ID
-MODEL_ID = "us.anthropic.claude-sonnet-4-20250514-v1:0"
+# Define a Bedrock model ID
+# MODEL_ID = "us.anthropic.claude-sonnet-4-20250514-v1:0"
+MODEM_ID = "us.anthropic.claude-sonnet-4-5-20250929-v1:0"
 
 # Create the user message asking for AWS compute recommendations
 messages = [
