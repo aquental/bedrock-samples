@@ -97,6 +97,6 @@ print(f"Assistant: {response_2}\n")
 # Format the template with appropriate variables and call send_message()
 # Print both the user message and assistant response
 user_message_3 = language_topic_template.format(language=language)
-response_3 = send_message(user_message_2)
+response_3 = send_message(user_message_3)
 print(f"User: {user_message_3}")
 print(f"Assistant: {response_3}\n")
