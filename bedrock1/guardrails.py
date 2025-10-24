@@ -17,9 +17,15 @@ blocked_message = "Your input contains content that is not allowed."
 
 # Create an input guardrail for the AWS technical assistant
 response = control.create_guardrail(
-    # TODO: Add unique guardrail name using uuid
-    # TODO: Add description of the guardrail
-    # TODO: Add contentPolicyConfig to block violence-related inputs
+    name=f"aws-assistant-guardrail-{uuid.uuid4().hex[:8]}",
+    description=(
+        "AWS assistant guardrail: deny hacking topics on input and apply violence category moderation on input."
+    ),
+    contentPolicyConfig={
+        "filtersConfig": [
+            {"type": "VIOLENCE", "inputStrength": "HIGH", "outputStrength": "NONE"},
+        ]
+    },
     topicPolicyConfig={
         "topicsConfig": [
             {
@@ -34,7 +40,19 @@ response = control.create_guardrail(
                     "attack",
                 ],
                 "type": "DENY",
-            }
+            },
+            # Add a new topic configuration for "Financial Advice" with appropriate definition, examples, and type
+            {
+                "name": "Financial Advice",
+                "definition": (
+                    "Content providing personalized financial recommendations, investment strategies, tax advice, or guidance on financial decisions."
+                ),
+                "examples": [
+                    "invest in",
+                    "buy stock",
+                ],
+                "type": "DENY",
+            },
         ]
     },
     blockedInputMessaging=blocked_message,
@@ -114,4 +132,10 @@ print(f"Assistant: {response_2}\n")
 user_message_3 = "I need help setting up secure IAM policies for my development team."
 response_3 = send_message(user_message_3)
 print(f"User: {user_message_3}")
-print(f"Assistant: {response_3}")
+print(f"Assistant: {response_3}\n")
+
+# A fourth turn that asks for financial advice
+user_message_4 = "Should I buy Amazon stock?"
+response_4 = send_message(user_message_4)
+print(f"User: {user_message_4}")
+print(f"Assistant: {response_4}\n")
