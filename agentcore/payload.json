@@ -1,0 +1,25 @@
+Payload: {
+    "prompt": "What is Amazon Bedrock?"
+}
+Invoking BedrockAgentCore agent 'my_agent' via cloud endpoint
+Session ID: 60cbb547-8046-46d4-809d-a65b458327b1
+
+Response: {
+    "ResponseMetadata": {
+        "RequestId": "e85aa08a-99ba-416b-bda6-afb2537c4c64",
+        "HTTPStatusCode": 200,
+        "HTTPHeaders": {
+      ...
+        },
+        "RetryAttempts": 0
+    },
+    "runtimeSessionId": "60cbb547-8046-46d4-809d-a65b458327b1",
+    "traceId": "Root=1-68c17ed4-5b2eb71412bf8b5a3ccaeaaa;Self=1-68c17ed4-32bac2165ecfdd8d418b3d5e",
+    "baggage": "Self=1-68c17ed4-32bac2165ecfdd8d418b3d5e,session.id=60cbb547-8046-46d4-809d-a65b458327b1",
+    "contentType": "application/json",
+    "statusCode": 200,
+    "response": [
+        "b'{\"result\": \"Based on the retrieved information, I can provide you with a comprehensive overview of Amazon Bedrock..."
+    }'"
+]
+}
