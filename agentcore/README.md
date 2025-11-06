@@ -453,3 +453,89 @@ reliability, security, and compliance.\\\\n\"}'"
 }
 /usercode/FILESYSTEM$
 ```
+
+# AgentCore workflow
+
+## List all AgentCore runtimes:
+
+```shell
+aws bedrock-agentcore-control list-agent-runtimes
+```
+
+```shell
+{
+    "agentRuntimes": [
+        {
+            "agentRuntimeArn": "arn:aws:bedrock-agentcore:us-east-1:194264601241:runtime/my_agent-1kzaVz4nFB",
+            "agentRuntimeId": "my_agent-1kzaVz4nFB",
+            "agentRuntimeVersion": "1",
+            "agentRuntimeName": "my_agent",
+            "lastUpdatedAt": "2025-11-06T04:51:02.305079+00:00",
+            "status": "READY"
+        }
+    ]
+}
+```
+
+## List all ECR repositories:
+
+```shell
+aws ecr describe-repositories
+```
+
+```shell
+{
+    "repositories": [
+        {
+            "repositoryArn": "arn:aws:ecr:us-east-1:194264601241:repository/bedrock-agentcore-my_agent",
+            "registryId": "194264601241",
+            "repositoryName": "bedrock-agentcore-my_agent",
+            "repositoryUri": "194264601241.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-my_agent",
+            "createdAt": "2025-11-06T04:49:23.092000+00:00",
+            "imageTagMutability": "MUTABLE",
+            "imageScanningConfiguration": {
+                "scanOnPush": false
+            },
+            "encryptionConfiguration": {
+                "encryptionType": "AES256"
+            }
+        }
+    ]
+}
+```
+
+## List all CodeBuild projects:
+
+```shell
+aws codebuild list-projects
+```
+
+```shell
+{
+    "projects": [
+        "bedrock-agentcore-my_agent-builder"
+    ]
+}
+```
+
+## CleanUp resources
+
+```shell
+aws bedrock-agentcore-control delete-agent-runtime --agent-runtime-id  my_agent-QvWuxn2abn
+```
+
+```shell
+{
+    "status": "DELETING",
+    "agentRuntimeId": "my_agent-QvWuxn2abn"
+}
+```
+## Delete repository
+
+```shell
+aws ecr delete-repository --repository-name <your-repository-name> --force
+```
+
+```shell
+
+```
