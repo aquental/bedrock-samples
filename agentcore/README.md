@@ -530,12 +530,28 @@ aws bedrock-agentcore-control delete-agent-runtime --agent-runtime-id  my_agent-
     "agentRuntimeId": "my_agent-QvWuxn2abn"
 }
 ```
+
 ## Delete repository
 
 ```shell
-aws ecr delete-repository --repository-name <your-repository-name> --force
+aws ecr delete-repository --repository-name bedrock-agentcore-my_agent --force
 ```
 
 ```shell
+{
+    "repository": {
+        "repositoryArn": "arn:aws:ecr:us-east-1:443180305204:repository/bedrock-agentcore-my_agent",
+        "registryId": "443180305204",
+        "repositoryName": "bedrock-agentcore-my_agent",
+        "repositoryUri": "443180305204.dkr.ecr.us-east-1.amazonaws.com/bedrock-agentcore-my_agent",
+        "createdAt": "2025-11-06T13:35:25.167000+00:00",
+        "imageTagMutability": "MUTABLE"
+    }
+}
+```
 
+## Delete project
+
+```shell
+aws codebuild delete-project --name bedrock-agentcore-my_agent-builder
 ```
