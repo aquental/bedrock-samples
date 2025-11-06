@@ -18,3 +18,19 @@ print("\nColumn names:", df.columns)
 
 print("\nData types:", df.dtypes)
 ```
+
+```python
+import pandas as pd
+
+# Load the California housing dataset
+df = pd.read_csv('data/california_housing.csv')
+
+# TODO: Generate statistical summary using df.describe()
+# Remember to set pandas to display all columns first!
+print("Statistical summary:")
+print(df.describe())
+
+# TODO: Check for missing values using df.isnull().sum()
+print("\nMissing values:")
+print(df.isnull().sum())
+```
