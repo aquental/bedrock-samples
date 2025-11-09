@@ -191,13 +191,22 @@ cap_values = {}
 for feature in features_to_cap:
     cap_values[feature] = X_train[feature].quantile(0.95)
 
-# Loop over each feature in features_to_cap
+# Apply capping to both training and test sets using training-derived thresholds
 for feature in features_to_cap:
-    # Cap X_train[feature] using .clip(upper=cap_values[feature])
     X_train[feature] = X_train[feature].clip(upper=cap_values[feature])
-    # Cap X_test[feature] using the same threshold
     X_test[feature] = X_test[feature].clip(upper=cap_values[feature])
 
-# Show summary statistics of X_train after preprocessing
-print(X_train.describe())
+# Combine features and target for saving
+train_data = pd.concat([X_train, y_train.rename('MedHouseVal')], axis=1)
+test_data = pd.concat([X_test, y_test.rename('MedHouseVal')], axis=1)
+
+# Print the shape of both datasets
+print("Training data shape:", train_data.shape)
+print("Test data shape:", test_data.shape)
+
+# Save the train data to 'data/california_housing_train.csv' without the index
+train_data.to_csv('data/california_housing_train.csv', index=False)
+
+# Save the test data to 'data/california_housing_test.csv' without the index
+test_data.to_csv('data/california_housing_test.csv', index=False)
 ```
